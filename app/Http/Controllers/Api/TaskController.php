@@ -36,6 +36,7 @@ class TaskController extends Controller
 
         $tasks = Task::create([
             "name" => $task['name'],
+            "description" => $task['description']
         ]);
 
         return response()->json(['message', 'task created']);
@@ -67,18 +68,26 @@ class TaskController extends Controller
      */
     public function update(TaskRequest $request, Task $id)
     {
-        //
 
+        $task = $request->validated();
         $tasks = Task::findOrFail($id);
 
+        $task->update([
+            "name" => $request->name,
+            "description" => $request->description,
+        ]);
 
+
+        return response()->json(["message" => "Task updated"]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Task $taskModel)
+    public function destroy(Task $id)
     {
         //
+        $tasks = Task::findOrFail($id);
+        $tasks->delete();
     }
 }
