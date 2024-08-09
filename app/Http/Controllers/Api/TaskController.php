@@ -16,7 +16,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //returns all tasks
+        $tasks = Task::all();
+        return response()->json($tasks);
     }
 
     /**
@@ -56,7 +57,7 @@ class TaskController extends Controller
     public function update(TaskRequest $request, Task $task)
     {
 
-        $task = $request->validated();
+        $tasks = $request->validated();
         
         $task->update([
             "name" => $request->name,
