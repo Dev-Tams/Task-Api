@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property string $name
+ * @property string $decription
  */
 
 class Task extends Model

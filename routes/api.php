@@ -18,7 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('tasks/create', [TaskController::class, 'store']);
-Route::put('tasks/{id}/update', [TaskController::class, "update"]);
-Route::delete('tasks/{id}/delete', [TaskController::class, "destroy"]);
 
+Route::apiResource('tasks', TaskController::class)->except("edit", "create");

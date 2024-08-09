@@ -10,7 +10,9 @@ use App\Http\Requests\TaskRequest;
 class TaskController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Shows all task for a single user
+     * 
+     * @response 200
      */
     public function index()
     {
@@ -18,15 +20,9 @@ class TaskController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //create a task
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Creates a new tasks
+     * 
+     * @Response 200
      */
     public function store(TaskRequest $request)
     {
@@ -43,35 +39,25 @@ class TaskController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Fetches a single task by id
+     * 
+     * @response 200
      */
-    public function show(Task $id)
+    public function show(Task $task)
     {
-        //fetch task by id 
-        //return
 
-        $tasks = Task::findOrFail($id);
-
-        return response()->json($tasks);
+        return response()->json($task);
     }
 
+   
     /**
-     * Show the form for editing the specified resource.
+     * Edits a task by id
      */
-    public function edit(Task $taskModel)
-    {
-        
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(TaskRequest $request, Task $id)
+    public function update(TaskRequest $request, Task $task)
     {
 
         $task = $request->validated();
-        $tasks = Task::findOrFail($id);
-
+        
         $task->update([
             "name" => $request->name,
             "description" => $request->description,
@@ -82,12 +68,15 @@ class TaskController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Deletes a task 
+     * 
+     * @response 204
      */
-    public function destroy(Task $id)
+    public function destroy(Task $task)
     {
         //
-        $tasks = Task::findOrFail($id);
-        $tasks->delete();
+        $task->delete();
+
+        return response()->noContent();
     }
 }
