@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+
 use App\Enums\TaskStatus as EnumsTaskStatus;
 use App\Models\Task;
 use Apps\Enums\TaskStatus;
 use App\Http\Requests\TaskRequest;
 use App\Http\Controllers\Controller;
-
+use App\Transformers\TaskTransformer;
 
 class TaskController extends Controller
 {
@@ -40,9 +41,9 @@ class TaskController extends Controller
         ]);
 
 
-        $tasks;
+        $tasks = fractal($tasks, new TaskTransformer);
 
-        return response()->json([$tasks. 'task created']);
+        return response()->json($tasks);
     }
 
     /**
