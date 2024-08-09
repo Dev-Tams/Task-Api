@@ -44,8 +44,44 @@ endpoints:
     custom: []
   -
     httpMethods:
+      - GET
+    uri: api/tasks
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Shows all task for a single user'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - POST
-    uri: api/tasks/create
+    uri: api/tasks
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -67,7 +103,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: magni
+        example: voluptate
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -76,14 +112,60 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Officia non nam magnam eveniet tempora recusandae dolorem.'
+        example: 'Qui dolorem et et.'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: magni
-      description: 'Officia non nam magnam eveniet tempora recusandae dolorem.'
+      name: voluptate
+      description: 'Qui dolorem et et.'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/tasks/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Fetches a single task by id'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the task.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
@@ -101,7 +183,8 @@ endpoints:
   -
     httpMethods:
       - PUT
-    uri: 'api/tasks/{id_id}/update'
+      - PATCH
+    uri: 'api/tasks/{id}'
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -115,9 +198,9 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      id_id:
-        name: id_id
-        description: 'The ID of the id.'
+      id:
+        name: id
+        description: 'The ID of the task.'
         required: true
         example: 1
         type: integer
@@ -125,7 +208,7 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id_id: 1
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -133,7 +216,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: rerum
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -142,14 +225,14 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Non voluptatem nemo odio nemo.'
+        example: 'Autem magni nesciunt incidunt optio deserunt qui.'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: rerum
-      description: 'Non voluptatem nemo odio nemo.'
+      name: ut
+      description: 'Autem magni nesciunt incidunt optio deserunt qui.'
     fileParameters: []
     responses: []
     responseFields: []
@@ -161,7 +244,7 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/tasks/{id_id}/delete'
+    uri: 'api/tasks/{id}'
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -175,9 +258,9 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      id_id:
-        name: id_id
-        description: 'The ID of the id.'
+      id:
+        name: id
+        description: 'The ID of the task.'
         required: true
         example: 1
         type: integer
@@ -185,7 +268,7 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id_id: 1
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

@@ -29,7 +29,24 @@ paths:
       tags:
         - Endpoints
       security: []
-  /api/tasks/create:
+  /api/tasks:
+    get:
+      summary: 'Shows all task for a single user'
+      operationId: showsAllTaskForASingleUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {  }
+                properties: {  }
+      tags:
+        - Endpoints
+      security: []
     post:
       summary: 'Creates a new tasks'
       operationId: createsANewTasks
@@ -56,15 +73,32 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: magni
+                  example: voluptate
                 description:
                   type: string
                   description: ''
-                  example: 'Officia non nam magnam eveniet tempora recusandae dolorem.'
+                  example: 'Qui dolorem et et.'
               required:
                 - name
       security: []
-  '/api/tasks/{id_id}/update':
+  '/api/tasks/{id}':
+    get:
+      summary: 'Fetches a single task by id'
+      operationId: fetchesASingleTaskById
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {  }
+                properties: {  }
+      tags:
+        - Endpoints
+      security: []
     put:
       summary: 'Edits a task by id'
       operationId: editsATaskById
@@ -83,24 +117,14 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: rerum
+                  example: ut
                 description:
                   type: string
                   description: ''
-                  example: 'Non voluptatem nemo odio nemo.'
+                  example: 'Autem magni nesciunt incidunt optio deserunt qui.'
               required:
                 - name
       security: []
-    parameters:
-      -
-        in: path
-        name: id_id
-        description: 'The ID of the id.'
-        example: 1
-        required: true
-        schema:
-          type: integer
-  '/api/tasks/{id_id}/delete':
     delete:
       summary: 'Deletes a task'
       operationId: deletesATask
@@ -115,8 +139,8 @@ paths:
     parameters:
       -
         in: path
-        name: id_id
-        description: 'The ID of the id.'
+        name: id
+        description: 'The ID of the task.'
         example: 1
         required: true
         schema:
