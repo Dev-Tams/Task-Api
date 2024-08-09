@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property string $name
  * @property string $decription
+ * @property string $task_status
  */
 
 class Task extends Model
@@ -17,6 +18,7 @@ class Task extends Model
 
     protected $fillable = [
         "name",
-        "description"
+        "description",
+        "task_status"
     ];
 }

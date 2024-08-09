@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Enums\TaskStatus as EnumsTaskStatus;
 use App\Models\Task;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Apps\Enums\TaskStatus;
 use App\Http\Requests\TaskRequest;
+use App\Http\Controllers\Controller;
+
 
 class TaskController extends Controller
 {
@@ -30,13 +32,17 @@ class TaskController extends Controller
         
         $task = $request->validated();
         
-
+      $status = EnumsTaskStatus::IN_PROGRESS->value;
         $tasks = Task::create([
             "name" => $task['name'],
-            "description" => $task['description']
+            "description" => $task['description'],
+            "task_status" => $status
         ]);
 
-        return response()->json(['message', 'task created']);
+
+        $tasks;
+
+        return response()->json([$tasks. 'task created']);
     }
 
     /**
@@ -62,6 +68,7 @@ class TaskController extends Controller
         $task->update([
             "name" => $request->name,
             "description" => $request->description,
+            "task_status" => $request->task_status
         ]);
 
 
