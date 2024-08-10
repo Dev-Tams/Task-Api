@@ -33,7 +33,7 @@ class TaskController extends Controller
         
         $task = $request->validated();
         
-      $status = EnumsTaskStatus::IN_PROGRESS->value;
+      $status = EnumsTaskStatus::PENDING->value;
         $tasks = Task::create([
             "name" => $task['name'],
             "description" => $task['description'],
