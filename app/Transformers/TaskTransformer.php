@@ -20,3 +20,5 @@ class TaskTransformer extends Fractal\TransformerAbstract
         ];
     }
 }
+
+file_put_contents("trans", "heelo");

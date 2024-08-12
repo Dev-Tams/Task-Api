@@ -20,3 +20,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('tasks', TaskController::class)->except("edit", "create");
+
+
+
+Route::options('/test-cors', function (Request $request) {
+    return response('CORS Test')
+        ->header('Access-Control-Allow-Origin', env('FRONTEND_URL', 'http://localhost:5173'))
+        ->header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT')
+        ->header('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Origin, Authorization');
+});
