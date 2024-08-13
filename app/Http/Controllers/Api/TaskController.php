@@ -30,6 +30,11 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::all();
+
+        
+       $task = fractal($tasks, new TaskTransformer)
+       ->toArray();
+       $task = $task['data'];
         return response()->json($tasks);
     }
 
@@ -38,7 +43,7 @@ class TaskController extends Controller
      * 
      * @Response 200
      */
-    public function store(TaskRequest $request)
+    public function store(TaskRequest $request, TaskTransformer $transformer)
     {
         
         $task = $request->validated();
@@ -51,9 +56,10 @@ class TaskController extends Controller
         ]);
 
 
-        $tasks = fractal($tasks, new TaskTransformer);
+       
+       $response = $transformer->transform($tasks);
 
-        return response()->json($tasks);
+        return response()->json($response);
     }
 
     /**
@@ -83,7 +89,9 @@ class TaskController extends Controller
         ]);
 
 
-        return response()->json(["message" => "Task updated"]);
+        $transformer = new TaskTransformer();
+        $response = $transformer->transform($task);
+        return response()->json($response);
     }
 
     /**
