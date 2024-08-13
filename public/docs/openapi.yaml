@@ -45,7 +45,7 @@ paths:
                 example: {  }
                 properties: {  }
       tags:
-        - Endpoints
+        - Web
       security: []
     post:
       summary: 'Creates a new tasks'
@@ -62,7 +62,7 @@ paths:
                 example: {  }
                 properties: {  }
       tags:
-        - Endpoints
+        - Web
       requestBody:
         required: true
         content:
@@ -73,13 +73,22 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: voluptate
+                  example: maxime
                 description:
                   type: string
                   description: ''
-                  example: 'Qui dolorem et et.'
+                  example: 'Temporibus consequatur ea illo sint reprehenderit possimus.'
+                task_status:
+                  type: string
+                  description: ''
+                  example: Completed
+                  enum:
+                    - Pending
+                    - In_progress
+                    - Completed
               required:
                 - name
+                - task_status
       security: []
   '/api/tasks/{id}':
     get:
@@ -97,7 +106,7 @@ paths:
                 example: {  }
                 properties: {  }
       tags:
-        - Endpoints
+        - Web
       security: []
     put:
       summary: 'Edits a task by id'
@@ -106,7 +115,7 @@ paths:
       parameters: []
       responses: {  }
       tags:
-        - Endpoints
+        - Web
       requestBody:
         required: true
         content:
@@ -117,13 +126,22 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: ut
+                  example: harum
                 description:
                   type: string
                   description: ''
-                  example: 'Autem magni nesciunt incidunt optio deserunt qui.'
+                  example: 'Asperiores officiis necessitatibus illum repellendus ipsum minima et.'
+                task_status:
+                  type: string
+                  description: ''
+                  example: Pending
+                  enum:
+                    - Pending
+                    - In_progress
+                    - Completed
               required:
                 - name
+                - task_status
       security: []
     delete:
       summary: 'Deletes a task'
@@ -134,18 +152,21 @@ paths:
         204:
           description: ''
       tags:
-        - Endpoints
+        - Web
       security: []
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the task.'
-        example: 1
+        example: 17
         required: true
         schema:
           type: integer
 tags:
   -
     name: Endpoints
+    description: ''
+  -
+    name: Web
     description: ''

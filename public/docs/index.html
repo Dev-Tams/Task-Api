@@ -74,21 +74,33 @@
                                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
                                 <a href="#endpoints-GETapi-user">GET api/user</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-tasks">
-                                <a href="#endpoints-GETapi-tasks">Shows all task for a single user</a>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-web" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="web">
+                    <a href="#web">Web</a>
+                </li>
+                                    <ul id="tocify-subheader-web" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="web-tasks">
+                                <a href="#web-tasks">Tasks</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-tasks">
-                                <a href="#endpoints-POSTapi-tasks">Creates a new tasks</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-tasks--id-">
-                                <a href="#endpoints-GETapi-tasks--id-">Fetches a single task by id</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-tasks--id-">
-                                <a href="#endpoints-PUTapi-tasks--id-">Edits a task by id</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-tasks--id-">
-                                <a href="#endpoints-DELETEapi-tasks--id-">Deletes a task</a>
-                            </li>
+                                                            <ul id="tocify-subheader-web-tasks" class="tocify-subheader">
+                                                                            <li class="tocify-item level-3" data-unique="web-GETapi-tasks">
+                                            <a href="#web-GETapi-tasks">Shows all task for a single user</a>
+                                        </li>
+                                                                            <li class="tocify-item level-3" data-unique="web-POSTapi-tasks">
+                                            <a href="#web-POSTapi-tasks">Creates a new tasks</a>
+                                        </li>
+                                                                            <li class="tocify-item level-3" data-unique="web-GETapi-tasks--id-">
+                                            <a href="#web-GETapi-tasks--id-">Fetches a single task by id</a>
+                                        </li>
+                                                                            <li class="tocify-item level-3" data-unique="web-PUTapi-tasks--id-">
+                                            <a href="#web-PUTapi-tasks--id-">Edits a task by id</a>
+                                        </li>
+                                                                            <li class="tocify-item level-3" data-unique="web-DELETEapi-tasks--id-">
+                                            <a href="#web-DELETEapi-tasks--id-">Deletes a task</a>
+                                        </li>
+                                                                    </ul>
                                                                         </ul>
                             </ul>
             </div>
@@ -100,7 +112,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: August 9, 2024</li>
+        <li>Last updated: August 12, 2024</li>
     </ul>
 </div>
 
@@ -246,7 +258,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-GETapi-tasks">Shows all task for a single user</h2>
+                <h1 id="web">Web</h1>
+
+    
+
+                        <h2 id="web-tasks">Tasks</h2>
+                                        <p>
+                    <p>api endpoints for tasks</p>
+                </p>
+                                        <h2 id="web-GETapi-tasks">Shows all task for a single user</h2>
 
 <p>
 </p>
@@ -361,7 +381,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-POSTapi-tasks">Creates a new tasks</h2>
+                    <h2 id="web-POSTapi-tasks">Creates a new tasks</h2>
 
 <p>
 </p>
@@ -378,8 +398,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"voluptate\",
-    \"description\": \"Qui dolorem et et.\"
+    \"name\": \"maxime\",
+    \"description\": \"Temporibus consequatur ea illo sint reprehenderit possimus.\",
+    \"task_status\": \"Completed\"
 }"
 </code></pre></div>
 
@@ -395,8 +416,9 @@ const headers = {
 };
 
 let body = {
-    "name": "voluptate",
-    "description": "Qui dolorem et et."
+    "name": "maxime",
+    "description": "Temporibus consequatur ea illo sint reprehenderit possimus.",
+    "task_status": "Completed"
 };
 
 fetch(url, {
@@ -492,10 +514,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-tasks"
-               value="voluptate"
+               value="maxime"
                data-component="body">
     <br>
-<p>Example: <code>voluptate</code></p>
+<p>Example: <code>maxime</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -503,14 +525,27 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-tasks"
-               value="Qui dolorem et et."
+               value="Temporibus consequatur ea illo sint reprehenderit possimus."
                data-component="body">
     <br>
-<p>Example: <code>Qui dolorem et et.</code></p>
+<p>Example: <code>Temporibus consequatur ea illo sint reprehenderit possimus.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>task_status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="task_status"                data-endpoint="POSTapi-tasks"
+               value="Completed"
+               data-component="body">
+    <br>
+<p>Example: <code>Completed</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>Pending</code></li> <li><code>In_progress</code></li> <li><code>Completed</code></li></ul>
         </div>
         </form>
 
-                    <h2 id="endpoints-GETapi-tasks--id-">Fetches a single task by id</h2>
+                    <h2 id="web-GETapi-tasks--id-">Fetches a single task by id</h2>
 
 <p>
 </p>
@@ -523,14 +558,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/tasks/1" \
+    --get "http://localhost/api/tasks/17" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/tasks/1"
+    "http://localhost/api/tasks/17"
 );
 
 const headers = {
@@ -630,14 +665,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-tasks--id-"
-               value="1"
+               value="17"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>1</code></p>
+<p>The ID of the task. Example: <code>17</code></p>
             </div>
                     </form>
 
-                    <h2 id="endpoints-PUTapi-tasks--id-">Edits a task by id</h2>
+                    <h2 id="web-PUTapi-tasks--id-">Edits a task by id</h2>
 
 <p>
 </p>
@@ -650,19 +685,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/tasks/1" \
+    "http://localhost/api/tasks/6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"ut\",
-    \"description\": \"Autem magni nesciunt incidunt optio deserunt qui.\"
+    \"name\": \"harum\",
+    \"description\": \"Asperiores officiis necessitatibus illum repellendus ipsum minima et.\",
+    \"task_status\": \"Pending\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/tasks/1"
+    "http://localhost/api/tasks/6"
 );
 
 const headers = {
@@ -671,8 +707,9 @@ const headers = {
 };
 
 let body = {
-    "name": "ut",
-    "description": "Autem magni nesciunt incidunt optio deserunt qui."
+    "name": "harum",
+    "description": "Asperiores officiis necessitatibus illum repellendus ipsum minima et.",
+    "task_status": "Pending"
 };
 
 fetch(url, {
@@ -765,10 +802,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-tasks--id-"
-               value="1"
+               value="6"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>1</code></p>
+<p>The ID of the task. Example: <code>6</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -777,10 +814,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-tasks--id-"
-               value="ut"
+               value="harum"
                data-component="body">
     <br>
-<p>Example: <code>ut</code></p>
+<p>Example: <code>harum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -788,14 +825,27 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="PUTapi-tasks--id-"
-               value="Autem magni nesciunt incidunt optio deserunt qui."
+               value="Asperiores officiis necessitatibus illum repellendus ipsum minima et."
                data-component="body">
     <br>
-<p>Example: <code>Autem magni nesciunt incidunt optio deserunt qui.</code></p>
+<p>Example: <code>Asperiores officiis necessitatibus illum repellendus ipsum minima et.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>task_status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="task_status"                data-endpoint="PUTapi-tasks--id-"
+               value="Pending"
+               data-component="body">
+    <br>
+<p>Example: <code>Pending</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>Pending</code></li> <li><code>In_progress</code></li> <li><code>Completed</code></li></ul>
         </div>
         </form>
 
-                    <h2 id="endpoints-DELETEapi-tasks--id-">Deletes a task</h2>
+                    <h2 id="web-DELETEapi-tasks--id-">Deletes a task</h2>
 
 <p>
 </p>
@@ -808,14 +858,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/tasks/1" \
+    "http://localhost/api/tasks/8" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/tasks/1"
+    "http://localhost/api/tasks/8"
 );
 
 const headers = {
@@ -914,10 +964,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-tasks--id-"
-               value="1"
+               value="8"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>1</code></p>
+<p>The ID of the task. Example: <code>8</code></p>
             </div>
                     </form>
 

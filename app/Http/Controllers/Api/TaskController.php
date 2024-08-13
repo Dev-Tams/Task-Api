@@ -10,6 +10,16 @@ use App\Http\Requests\TaskRequest;
 use App\Http\Controllers\Controller;
 use App\Transformers\TaskTransformer;
 
+/**
+ * @group Web
+ * 
+ * @subgroup Tasks
+ * 
+ * @subgroupDescription api endpoints for tasks
+ * 
+ * 
+ **/
+
 class TaskController extends Controller
 {
     /**
